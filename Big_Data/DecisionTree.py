@@ -4,12 +4,6 @@ import math
 class DecisionTree:
     _features = ["buying", "maint", "doors", "persons", "lug_boot", "safety"]
     _labels = ["unacc", "acc"]
-    _feature_value_list = [["vhigh", "high", "med", "low"],
-                     ["vhigh", "high", "med", "low"],
-                     ["2", "3", "4", "5more"],
-                     ["2", "4", "more"],
-                     ["small", "med", "big"],
-                     ["low", "med", "high"]]
     _feature_value = {"buying": ["vhigh", "high", "med", "low"],
                       "maint": ["vhigh", "high", "med", "low"],
                       "doors": ["2", "3", "4", "5more"],
