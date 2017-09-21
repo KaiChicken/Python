@@ -170,3 +170,9 @@ print(a,b,c,d)
 print (b is a)
 
 print(time.time()-current_time)
+
+import pandas as pd
+pd_data = pd.read_csv("housing_training.csv",header=None)
+print(pd_data.iloc[0])
+np_data = np.array(pd_data)
+print(np_data[0])

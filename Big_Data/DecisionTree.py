@@ -195,10 +195,10 @@ if __name__=="__main__":
     tree = {}
     dt.create_tree(tree, dt.train_data, dt._features)
     dt.print_tree(tree,0)
-    estimate_results = dt.fit(tree, dt.test_data)
+    estimate_results = dt.fit(tree, dt.train_data)
     actual_results = []
     number_of_correct_result =0
-    for row in dt.test_data:
+    for row in dt.train_data:
         actual_results.append(row[-1])
     #find the number of correct answers
     for i in range (len(estimate_results)):
