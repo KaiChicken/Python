@@ -14,10 +14,10 @@ tf.set_random_seed(1)
 np.random.seed(1)
 
 # fake data
-x = np.linspace(-1, 1, 1000).reshape(100,10)         # shape (100, 1)
+x = np.linspace(-1, 1, 100)        # shape (100, 1)
 noise = np.random.normal(0, 0.1, size=x.shape)
 y = np.power(x, 2) + noise                          # shape (100, 1) + some noise
-print(x)
+
 
 # plot data
 plt.scatter(x, y)
