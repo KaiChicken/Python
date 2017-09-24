@@ -25,7 +25,7 @@ test_y = np.array(housing_test.loc[:,13])
 prediction = (test_X.dot(b)).flatten()
 
 #find RMSE
-rmse = ((sum((test_y-prediction)**2))**0.5)/206
+rmse = (((sum((test_y-prediction)**2))/206)**0.5)
 print("RMSE is", rmse)
 
 #plot the graph
@@ -34,6 +34,8 @@ for i in range(100):
     x.append(i)
 plt.plot(x,color = 'red')
 plt.scatter(prediction,test_y,color = 'black')
+plt.xlabel('Prediction')
+plt.ylabel('Ground Truth')
 plt.xlim(0,52)
 plt.ylim(0,52)
 plt.show()
