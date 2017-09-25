@@ -39,7 +39,6 @@ for i in range (10):
         for k in range(X.shape[1]):
             if std > 0:
                 X[j][k] = (X[j][k]-mean)/std
-
 '''
 
 #loop for each batch
@@ -61,8 +60,6 @@ for i in range(len(batch)):
             X[j][k] = X[j][k]+ np.random.random_sample()/10000
 
     ###standard deviation
-
-
 
     #find the coefficient
     b = ((np.linalg.inv(np.transpose(X).dot(X))).dot(np.transpose(X))).dot(y)

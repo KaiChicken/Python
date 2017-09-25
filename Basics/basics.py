@@ -15,3 +15,6 @@ print("newlines " * 5)
 a = np.array([[1,2],[3,4]])
 std = np.std(a)
 print (np.mean(a))
+
+a = np.arange(20)
+print(a)
