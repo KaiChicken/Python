@@ -27,6 +27,7 @@ def add_layer(inputs, in_size, out_size, n_layer, activation_function = None):
 x_data = np.linspace(-1, 1, 300, dtype=np.float32)[:,np.newaxis]
 noise = np.random.normal(0,0.05, x_data.shape).astype(np.float32)
 y_data = np.square(x_data) + noise
+print(x_data)
 
 #define placeholder for inputs to netword
 with tf.name_scope('inputs'):

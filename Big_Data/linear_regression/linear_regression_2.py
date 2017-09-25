@@ -14,6 +14,34 @@ for i in range (10):
         if j%10 == i:
             batch[i].append(j)
 
+'''
+    #standard deviation normalization by row
+    std =np.std(X, axis = 1)
+    for j in range(X.shape[0]):
+        mean = sum(X[j])/X.shape[1]
+        row_std = std[j]
+        for k in range(X.shape[1]):
+            if row_std > 0:
+                X[j][k] = (X[j][k]-mean)/row_std
+                
+    ###standard deviation normalization by column
+    std =np.std(X, axis = 0)
+    for j in range(X.shape[0]):
+        mean = sum(X[j])/X.shape[1]
+        for k in range(X.shape[1]):
+            if std[k] > 0:
+                X[j][k] = (X[j][k]-mean)/std[k]
+                
+     ###standard deviation normalization by whole matrix
+    std =np.std(X)
+    mean = np.mean(X)
+    for j in range(X.shape[0]):
+        for k in range(X.shape[1]):
+            if std > 0:
+                X[j][k] = (X[j][k]-mean)/std
+
+'''
+
 #loop for each batch
 for i in range(len(batch)):
     #X is the train data, y is the labels
@@ -32,14 +60,9 @@ for i in range(len(batch)):
         for k in range(X.shape[1]):
             X[j][k] = X[j][k]+ np.random.random_sample()/10000
 
-    #standard deviation normalization
-    std =np.std(X, axis = 1)
-    for j in range(X.shape[0]):
-        mean = sum(X[j])/X.shape[1]
-        row_std = std[j]
-        for k in range(X.shape[1]):
-            if row_std > 0:
-                X[j][k] = (X[j][k]-mean)/row_std
+    ###standard deviation
+
+
 
     #find the coefficient
     b = ((np.linalg.inv(np.transpose(X).dot(X))).dot(np.transpose(X))).dot(y)
@@ -62,7 +85,7 @@ for i in range(len(batch)):
     test_y = test_y.flatten()
     prediction = prediction.flatten()
 
-    #find the correct rate
+    #find the correct rate, if the prediction < 0, it is 5, if prediction > 0, it is 6
     correct_count = 0
     for j in range(len(prediction)):
         if prediction[j] > 0 and test_y[j]==6:
