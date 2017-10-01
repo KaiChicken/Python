@@ -25,7 +25,7 @@ test_y = np.array(housing_test.loc[:,13])
 prediction = (test_X.dot(b)).flatten()
 
 #find RMSE
-rmse = (((sum((test_y-prediction)**2))/206)**0.5)
+rmse = (((sum((test_y-prediction)**2))/test_y.shape[0])**0.5)
 print("RMSE is", rmse)
 
 #plot the graph
